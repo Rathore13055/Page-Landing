@@ -1,0 +1,218 @@
+/* ========= THEME VARIABLES ========= */
+:root {
+  --primary: #4f46e5;
+  --light: #f3f4f6;
+  --dark: #1f2937;
+  --bg: white;
+  --text: var(--dark);
+  --card-bg: white;
+  --card-text: var(--dark);
+}
+
+/* Dark mode active */
+body:has(#modeSwitch:checked) {
+  --bg: #111827;
+  --text: #f3f4f6;
+  --light: #1f2937;
+  --dark: #f3f4f6;
+  --card-bg: #1f2937;
+  --card-text: #f3f4f6;
+}
+
+/* ========= GLOBAL ========= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  color: var(--text);
+}
+
+button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: 8px;
+}
+
+/* ========= HEADER ========= */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: var(--card-bg);
+  color: var(--card-text);
+}
+
+nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: var(--text);
+}
+
+/* ========= DARK MODE TOGGLE ========= */
+.theme-toggle {
+  position: relative;
+  width: 45px;
+  height: 24px;
+  display: inline-block;
+}
+
+.theme-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.theme-toggle .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: .4s;
+}
+
+.theme-toggle .slider:before {
+  content: "🌙";
+  position: absolute;
+  height: 18px; width: 18px;
+  left: 4px; top: 3px;
+  transition: .4s;
+}
+
+.theme-toggle input:checked + .slider {
+  background-color: var(--primary);
+}
+
+.theme-toggle input:checked + .slider:before {
+  content: "☀️";
+  transform: translateX(21px);
+}
+
+/* ========= HERO ========= */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.hero-content {
+  flex: 1 1 300px;
+  text-align: left;
+}
+
+.hero-image {
+  flex: 1 1 300px;
+}
+
+/* ========= FEATURES ========= */
+.feature-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.feature-card {
+  background: var(--card-bg);
+  color: var(--card-text);
+  padding: 2rem;
+  border-radius: 10px;
+  flex: 1 1 250px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+/* ========= PRICING ========= */
+.pricing-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.price-card {
+  background: var(--card-bg);
+  color: var(--card-text);
+  padding: 2rem;
+  border-radius: 10px;
+  flex: 1 1 250px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.price-card.highlight {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* ========= TESTIMONIALS ========= */
+.testimonial-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.testimonial {
+  background: var(--card-bg);
+  color: var(--card-text);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 300px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.testimonial img {
+  width: 50px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+/* ========= FOOTER ========= */
+footer {
+  padding: 2rem;
+  background: var(--card-bg);
+  color: var(--card-text);
+  text-align: center;
+}
+
+/* ========= RESPONSIVE ========= */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
+  nav a {
+    display: inline-block;
+    margin: 0.5rem;
+  }
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+}
